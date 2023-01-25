@@ -15,7 +15,7 @@
 ## Part 1. Готовый докер
 
 ##### Взять официальный докер образ с **nginx** и выкачать его при помощи `docker pull`
-[nginx pull](/images/1.png)
+![nginx_pull](images/1.png)
 
 ##### Проверить наличие докер образа через `docker images`
 ##### Запустить докер образ через `docker run -d [image_id|repository]`
