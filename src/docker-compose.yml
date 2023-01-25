@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  local_fcgi:
+    container_name: fcgi
+    build: . 
+    links:
+      - proxy_nginx
+
+  proxy_nginx:
+
+    container_name: proxy
+    image: nginx
+    build: proxy_nginx/
+    ports:
+      - 80:8080
+
+
+    
+

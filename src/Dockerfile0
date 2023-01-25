@@ -1,0 +1,16 @@
+FROM nginx
+
+COPY ./nginx/nginx.conf /etc/nginx/conf.d/nginx.conf
+
+WORKDIR /usr/src/app
+COPY ./server/main.c  .
+COPY ./start-server.sh .
+
+RUN apt-get update && \
+    apt-get install -y gcc && \
+    apt-get install -y libfcgi-dev && \
+    apt-get install -y spawn-fcgi && \
+    rm /etc/nginx/conf.d/default.conf && \
+    chmod 755 start-server.sh
+
+CMD ["/bin/bash", "./start-server.sh"]
